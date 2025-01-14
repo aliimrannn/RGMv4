@@ -25,12 +25,23 @@
 
             <div class="form-group">
                 <label for="Position">Position</label>
-                <input type="text" name="Position" class="form-control" value="{{ $academician->Position }}" required>
+                <select name="Position" class="form-control" required>
+                    <option value="Professor" {{ $academician->Position == 'Professor' ? 'selected' : '' }}>Professor</option>
+                    <option value="Assoc Prof." {{ $academician->Position == 'Assoc Prof.' ? 'selected' : '' }}>Assoc Prof.</option>
+                    <option value="Senior Lecturer" {{ $academician->Position == 'Senior Lecturer' ? 'selected' : '' }}>Senior Lecturer</option>
+                    <option value="Lecturer" {{ $academician->Position == 'Lecturer' ? 'selected' : '' }}>Lecturer</option>
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="College">College</label>
-                <input type="text" name="College" class="form-control" value="{{ $academician->College }}" required>
+                <select name="College" class="form-control" required>
+                    <option value="College of Engineering (COE)" {{ $academician->College == 'College of Engineering (COE)' ? 'selected' : '' }}>College of Engineering (COE)</option>
+                    <option value="UNITEN Business School (UBS)" {{ $academician->College == 'UNITEN Business School (UBS)' ? 'selected' : '' }}>UNITEN Business School (UBS)</option>
+                    <option value="College of Computing & Informatics (CCI)" {{ $academician->College == 'College of Computing & Informatics (CCI)' ? 'selected' : '' }}>College of Computing & Informatics (CCI)</option>
+                    <option value="College of Continuing Education (CCEd)" {{ $academician->College == 'College of Continuing Education (CCEd)' ? 'selected' : '' }}>College of Continuing Education (CCEd)</option>
+                    <option value="College of Graduate Studies (COGS)" {{ $academician->College == 'College of Graduate Studies (COGS)' ? 'selected' : '' }}>College of Graduate Studies (COGS)</option>
+                </select>
             </div>
 
             <div class="form-group">
@@ -40,5 +51,5 @@
 
             <button type="submit" class="btn btn-success">Update</button>
         </form>
-    <div>
+    </div>
 @endsection

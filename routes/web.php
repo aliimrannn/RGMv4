@@ -10,5 +10,7 @@ Route::get('/', function () {
 });
 
 Route::resource('academicians', AcademicianController::class);
+
 Route::resource('research-grants', ResearchGrantController::class);
+
 Route::resource('milestones', MilestoneController::class);

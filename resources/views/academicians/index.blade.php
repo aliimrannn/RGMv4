@@ -10,7 +10,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Academician ID</th>
                     <th>Name</th>
                     <th>Staff ID</th>
                     <th>Email</th>
@@ -25,6 +25,7 @@
                     <td>{{ $academician->StaffID }}</td>
                     <td>{{ $academician->Email }}</td>
                     <td>
+                        <a href="{{ route('academicians.show', $academician) }}" class="btn btn-info">View</a>
                         <a href="{{ route('academicians.edit', $academician) }}" class="btn btn-warning">Edit</a>
                         <form action="{{ route('academicians.destroy', $academician) }}" method="POST" style="display:inline;">
                             @csrf

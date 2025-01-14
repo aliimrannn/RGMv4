@@ -22,6 +22,7 @@ class AcademicianController extends Controller
 
     public function store(Request $request)
     {
+        //validate incoming request data
         $request->validate([
             'Name' => 'required',
             'StaffID' => 'required|unique:academicians',
@@ -31,7 +32,16 @@ class AcademicianController extends Controller
             'Department' => 'required',
         ]);
 
-        Academician::create($request->all());
+        // Store data
+        Academician::create([
+            'Name' => $request->Name,
+            'StaffID' => $request->StaffID,
+            'Position' => $request->Position,
+            'Email' => $request->Email,
+            'College' => $request->College,
+            'Department' => $request->Department,
+        ]);
+
         return redirect()->route('academicians.index')->with('success', 'Academician created successfully.');
     }
 
@@ -50,20 +60,23 @@ class AcademicianController extends Controller
 
     public function update(Request $request, Academician $academician)
     {
+        // Validate the request data for update
         $request->validate([
             'Name' => 'required',
-            'StaffID' => 'required|unique:academicians,StaffID,' . $academician->Academician_ID,
+            'StaffID' => 'required',
             'Position' => 'required',
-            'Email' => 'required|email|unique:academicians,Email,' . $academician->Academician_ID,
+            'Email' => 'required',
             'College' => 'required',
             'Department' => 'required',
         ]);
 
+        // Update the academician record with validated data
         $academician->update($request->all());
+
         return redirect()->route('academicians.index')->with('success', 'Academician updated successfully.');
     }
 
-    
+
     public function destroy(Academician $academician)
     {
         $academician->delete();
