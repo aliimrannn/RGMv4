@@ -11,6 +11,16 @@ class ResearchGrant extends Model
 
     protected $primaryKey = 'Grant_ID';
 
+    protected $fillable = [
+        'ProjectTitle',
+        'GrantAmount',
+        'GrantProvider',
+        'StartDate',
+        'DurationMonth',
+        'EndDate',
+        'Academician_ID',
+    ];
+
     public function academician()
     {
         return $this->belongsTo(Academician::class, 'Academician_ID', 'Academician_ID');

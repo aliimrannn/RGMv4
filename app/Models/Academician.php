@@ -20,7 +20,7 @@ class Academician extends Model
         'Position', 
         'Email', 
         'College', 
-        'Department'
+        'Department',
     ];
 
     public function researchGrants()

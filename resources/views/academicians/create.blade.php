@@ -3,6 +3,7 @@
 @section('content')
     <div class="container">
         <h1>Create Academician</h1>
+        
         <form action="{{ route('academicians.store') }}" method="POST">
             @csrf
             <div class="mb-3">

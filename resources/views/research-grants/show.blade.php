@@ -2,15 +2,12 @@
 
 @section('content')
     <div class="container">
-        <h1>Research Grant Details</h1>
-
-        <p><strong>Project Title:</strong> {{ $grant->ProjectTitle }}</p>
-        <p><strong>Grant Provider:</strong> {{ $grant->GrantProvider }}</p>
-        <p><strong>Grant Amount:</strong> RM {{ number_format($grant->GrantAmount, 2) }}</p>
-        <p><strong>Start Date:</strong> {{ $grant->StartDate }}</p>
-        <p><strong>Duration:</strong> {{ $grant->DurationMonth }} months</p>
-        <p><strong>End Date:</strong> {{ $grant->EndDate }}</p>
-
-        <a href="{{ route('research-grants.index') }}" class="btn btn-primary">Back</a>
-    <div>
+        <h1>{{ $researchGrant->ProjectTitle }}</h1>
+        <p><strong>Grant Provider:</strong> {{ $researchGrant->GrantProvider }}</p>
+        <p><strong>Grant Amount:</strong> {{ $researchGrant->GrantAmount }}</p>
+        <p><strong>Start Date:</strong> {{ $researchGrant->StartDate }}</p>
+        <p><strong>Duration (Months):</strong> {{ $researchGrant->DurationMonth }}</p>
+        <p><strong>End Date:</strong> {{ $researchGrant->EndDate }}</p>
+        <p><strong>Project Leader:</strong> {{ $researchGrant->academician->Name }}</p> <!-- Assuming the relationship is defined -->
+    </div>
 @endsection

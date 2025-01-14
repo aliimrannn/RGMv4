@@ -31,24 +31,26 @@ class ResearchGrantController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'ProjectTitle' => 'required',
+        $validatedData = $request->validate([
+            'ProjectTitle' => 'required|string|max:255',
             'GrantAmount' => 'required|integer',
-            'GrantProvider' => 'required',
+            'GrantProvider' => 'required|string|max:255',
             'StartDate' => 'required|date',
             'DurationMonth' => 'required|integer',
             'EndDate' => 'required|date',
             'Academician_ID' => 'required|exists:academicians,Academician_ID',
         ]);
 
-        ResearchGrant::create($request->all());
+        // Store data
+        $researchGrant = ResearchGrant::create($validatedData);
+
         return redirect()->route('research-grants.index')->with('success', 'Research grant created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(ResearchGrant $reserachGrant)
+    public function show(ResearchGrant $researchGrant)
     {
         return view('research-grants.show', compact('researchGrant'));
     }
@@ -56,7 +58,7 @@ class ResearchGrantController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ResearchGrant $reserachGrant)
+    public function edit(ResearchGrant $researchGrant)
     {
         $academicians = Academician::all();
         return view('research-grants.edit', compact('researchGrant', 'academicians'));
@@ -65,7 +67,7 @@ class ResearchGrantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ResearchGrant $reserachGrant)
+    public function update(Request $request, ResearchGrant $researchGrant)
     {
         $request->validate([
             'ProjectTitle' => 'required',
@@ -84,7 +86,7 @@ class ResearchGrantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ResearchGrant $reserachGrant)
+    public function destroy(ResearchGrant $researchGrant)
     {
         $researchGrant->delete();
         return redirect()->route('research-grants.index')->with('success', 'Research grant deleted successfully.');

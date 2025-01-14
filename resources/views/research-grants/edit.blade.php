@@ -4,41 +4,54 @@
     <div class="container">
         <h1>Edit Research Grant</h1>
 
-        <form action="{{ route('research-grants.update', $grant) }}" method="POST">
+        <form action="{{ route('research-grants.update', $researchGrant) }}" method="POST">
             @csrf
             @method('PUT')
 
             <div class="form-group">
                 <label for="ProjectTitle">Project Title</label>
-                <input type="text" name="ProjectTitle" class="form-control" value="{{ $grant->ProjectTitle }}" required>
+                <input type="text" name="ProjectTitle" class="form-control" value="{{ $researchGrant->ProjectTitle }}" required>
             </div>
 
             <div class="form-group">
                 <label for="GrantProvider">Grant Provider</label>
-                <input type="text" name="GrantProvider" class="form-control" value="{{ $grant->GrantProvider }}" required>
+                <input type="text" name="GrantProvider" class="form-control" value="{{ $researchGrant->GrantProvider }}" required>
             </div>
 
             <div class="form-group">
                 <label for="GrantAmount">Grant Amount</label>
-                <input type="number" name="GrantAmount" class="form-control" step="0.01" value="{{ $grant->GrantAmount }}" required>
+                <input type="number" name="GrantAmount" class="form-control" step="0.01" value="{{ $researchGrant->GrantAmount }}" required>
             </div>
 
             <div class="form-group">
                 <label for="StartDate">Start Date</label>
-                <input type="date" name="StartDate" class="form-control" value="{{ $grant->StartDate }}" required>
+                <input type="date" name="StartDate" class="form-control" value="{{ $researchGrant->StartDate }}" required>
             </div>
 
             <div class="form-group">
                 <label for="DurationMonth">Duration (Months)</label>
-                <input type="number" name="DurationMonth" class="form-control" value="{{ $grant->DurationMonth }}" required>
+                <input type="number" name="DurationMonth" class="form-control" value="{{ $researchGrant->DurationMonth }}" required>
             </div>
 
             <div class="form-group">
                 <label for="EndDate">End Date</label>
-                <input type="date" name="EndDate" class="form-control" value="{{ $grant->EndDate }}" required>
+                <input type="date" name="EndDate" class="form-control" value="{{ $researchGrant->EndDate }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Academician_ID">Project Leader</label>
+                <select name="Academician_ID" class="form-control" required>
+                    <option value="">-- Select Project Leader --</option>
+                    @foreach ($academicians as $academician)
+                        <option value="{{ $academician->Academician_ID }}" 
+                            {{ $academician->Academician_ID == $researchGrant->Academician_ID ? 'selected' : '' }}>
+                            {{ $academician->Name }} ({{ $academician->StaffID }})
+                        </option>
+                    @endforeach
+                </select>
             </div>
 
             <button type="submit" class="btn btn-success">Update</button>
         </form>
-    <div>
+    </div>
 @endsection
