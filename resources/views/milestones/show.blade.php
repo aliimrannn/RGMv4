@@ -5,6 +5,7 @@
         <h1>Milestone Details</h1>
 
         <p><strong>Name:</strong> {{ $milestone->Name }}</p>
+        <p><strong>Research Grant:</strong> {{ $milestone->researchGrant->ProjectTitle }}</p>
         <p><strong>Target Completion Date:</strong> {{ $milestone->TargetCompletionDate }}</p>
         <p><strong>Status:</strong> {{ $milestone->Status }}</p>
         <p><strong>Remarks:</strong> {{ $milestone->Remarks }}</p>

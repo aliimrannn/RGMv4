@@ -11,6 +11,16 @@ class Milestone extends Model
 
     protected $primaryKey = 'Milestone_ID';
 
+    protected $fillable = [
+        'Name',
+        'TargetCompletionDate',
+        'Status',
+        'StartDate',
+        'Remarks',
+        'Deliverable',
+        'Grant_ID',
+    ];
+
     public function researchGrant()
     {
         return $this->belongsTo(ResearchGrant::class, 'Grant_ID', 'Grant_ID');

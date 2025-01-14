@@ -6,36 +6,48 @@
 
         <form action="{{ route('milestones.store') }}" method="POST">
             @csrf
-            <div class="form-group">
-                <label for="Name">Name</label>
-                <input type="text" name="Name" class="form-control" required>
+            <div class="mb-3">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" id="Name" name="Name" class="form-control" required>
             </div>
 
-            <div class="form-group">
-                <label for="TargetCompletionDate">Target Completion Date</label>
-                <input type="date" name="TargetCompletionDate" class="form-control" required>
+            <!-- Research Grant Selection Section -->
+            <div class="mb-3">
+                <label for="Grant_ID" class="form-label">Select Research Grant</label>
+                <select id="Grant_ID" name="Grant_ID" class="form-control" required>
+                    <option value="">Select Grant</option>
+                    @foreach($researchGrants as $researchGrant)
+                        <option value="{{ $researchGrant->Grant_ID }}">
+                            {{ $researchGrant->ProjectTitle }}</option>
+                    @endforeach
+                </select>
             </div>
 
-            <div class="form-group">
-                <label for="Status">Status</label>
-                <select name="Status" class="form-control" required>
+            <div class="mb-3">
+                <label for="TargetCompletionDate" class="form-label">Target Completion Date</label>
+                <input type="date" id="TargetCompletionDate" name="TargetCompletionDate" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="Status" class="form-label">Status</label>
+                <select name="Status" id="Status" class="form-control" required>
                     <option value="Pending">Pending</option>
                     <option value="In Progress">In Progress</option>
                     <option value="Completed">Completed</option>
                 </select>
             </div>
 
-            <div class="form-group">
-                <label for="Remarks">Remarks</label>
-                <textarea name="Remarks" class="form-control"></textarea>
+            <div class="mb-3">
+                <label for="Remarks" class="form-label">Remarks</label>
+                <textarea id="Remarks" name="Remarks" class="form-control"></textarea>
             </div>
 
-            <div class="form-group">
-                <label for="Deliverable">Deliverable</label>
-                <textarea name="Deliverable" class="form-control"></textarea>
+            <div class="mb-3">
+                <label for="Deliverable" class="form-label">Deliverable</label>
+                <textarea id="Deliverable" name="Deliverable" class="form-control"></textarea>
             </div>
 
             <button type="submit" class="btn btn-success">Save</button>
         </form>
-    <div>
+    </div>
 @endsection

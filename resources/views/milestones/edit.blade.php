@@ -13,6 +13,19 @@
                 <input type="text" name="Name" class="form-control" value="{{ $milestone->Name }}" required>
             </div>
 
+            <!-- Research Grant Selection Section -->
+            <div class="mb-3">
+                <label for="Grant_ID" class="form-label">Select Research Grant</label>
+                <select id="Grant_ID" name="Grant_ID" class="form-control" required>
+                    <option value="">Select Grant</option>
+                    @foreach($researchGrants as $researchGrant)
+                        <option value="{{ $researchGrant->Grant_ID }}">
+                            {{ $researchGrant->ProjectTitle }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
             <div class="form-group">
                 <label for="TargetCompletionDate">Target Completion Date</label>
                 <input type="date" name="TargetCompletionDate" class="form-control" value="{{ $milestone->TargetCompletionDate }}" required>
