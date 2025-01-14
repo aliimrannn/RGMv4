@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Academician;
+use App\Models\ResearchGrant;
 use Illuminate\Http\Request;
 
 class AcademicianController extends Controller
@@ -48,7 +49,8 @@ class AcademicianController extends Controller
 
     public function show(Academician $academician)
     {
-        return view('academicians.show', compact('academician'));
+        $researchGrant = ResearchGrant::where('Academician_ID', $academician->Academician_ID)->get();
+        return view('academicians.show', compact('academician', 'researchGrant'));
     }
 
 
