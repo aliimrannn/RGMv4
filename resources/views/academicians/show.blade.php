@@ -11,7 +11,7 @@
         <p><strong>College:</strong> {{ $academician->College }}</p>
         <p><strong>Department:</strong> {{ $academician->Department }}</p>
 
-        <!-- Project Leader Section -->
+        <!-- Project Leading Section -->
         @if($researchGrant->isNotEmpty())
             <h3>Project Leading</h3>
             <table class="table table-bordered">
@@ -24,12 +24,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($researchGrant as $researchGrant)
+                    @foreach($researchGrant as $grant)
                         <tr>
-                            <td>{{ $researchGrant->ProjectTitle }}</td>
-                            <td>{{ $researchGrant->GrantProvider }}</td>
-                            <td>{{ $researchGrant->StartDate }}</td>
-                            <td>{{ $researchGrant->EndDate }}</td>
+                            <td>{{ $grant->ProjectTitle }}</td>
+                            <td>{{ $grant->GrantProvider }}</td>
+                            <td>{{ $grant->StartDate }}</td>
+                            <td>{{ $grant->EndDate }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -38,6 +38,35 @@
             <p>This academician is not leading any projects.</p>
         @endif
 
+        <!-- Member of Research Grants Section -->
+        @if($memberGrants->isNotEmpty())
+            <h3>Research Grants as a Member</h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Project Title</th>
+                        <th>Grant Provider</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Project Leader</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($memberGrants as $memberGrant)
+                        <tr>
+                            <td>{{ $memberGrant->ProjectTitle }}</td>
+                            <td>{{ $memberGrant->GrantProvider }}</td>
+                            <td>{{ $memberGrant->StartDate }}</td>
+                            <td>{{ $memberGrant->EndDate }}</td>
+                            <td>{{ $memberGrant->academician->Name }}</td> <!-- Assuming relationship defined -->
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <p>This academician is not a member of any research grants.</p>
+        @endif
+
         <a href="{{ route('academicians.index') }}" class="btn btn-primary">Back</a>
-    <div>
+    </div>
 @endsection

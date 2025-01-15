@@ -49,8 +49,16 @@ class AcademicianController extends Controller
 
     public function show(Academician $academician)
     {
+        //for project leader
         $researchGrant = ResearchGrant::where('Academician_ID', $academician->Academician_ID)->get();
-        return view('academicians.show', compact('academician', 'researchGrant'));
+
+        //for members
+        $memberGrants = ResearchGrant::whereHas('members', function ($query) use ($academician) {
+            // Specify the table name to resolve the ambiguity
+            $query->where('academician_research_grant.Academician_ID', $academician->Academician_ID);
+        })->get();
+
+        return view('academicians.show', compact('academician', 'researchGrant', 'memberGrants'));
     }
 
 

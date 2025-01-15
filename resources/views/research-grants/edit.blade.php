@@ -51,6 +51,19 @@
                 </select>
             </div>
 
+            <div class="form-group">
+                <label for="members">Assign Members</label>
+                <select name="members[]" class="form-control" multiple>
+                    @foreach ($academicians as $academician)
+                        <option value="{{ $academician->Academician_ID }}" 
+                            {{ $researchGrant->members->contains($academician->Academician_ID) ? 'selected' : '' }}>
+                            {{ $academician->Name }} ({{ $academician->StaffID }})
+                        </option>
+                    @endforeach
+                </select>
+                <small class="form-text text-muted">Hold down the Ctrl (Windows) or Command (Mac) key to select multiple members.</small>
+            </div>
+
             <button type="submit" class="btn btn-success">Update</button>
         </form>
     </div>

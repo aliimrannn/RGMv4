@@ -64,9 +64,14 @@ class ResearchGrantController extends Controller
             'DurationMonth' => 'required|integer',
             'EndDate' => 'required|date',
             'Academician_ID' => 'required|exists:academicians,Academician_ID',
+            'members' => 'array', // Validate that members is an array
+            'members.*' => 'exists:academicians,Academician_ID', // Validate each ID exists
         ]);
 
         $researchGrant->update($request->all());
+
+        $researchGrant->members()->sync($request->members);
+        
         return redirect()->route('research-grants.index')->with('success', 'Research grant updated successfully.');
     }
 
