@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <!-- Research Grants Section -->
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="card">
+            <div class="card shadow-lg rounded-3 bg-light">
                 <div class="card-body text-center">
                     <!-- Research Grants Icon -->
                     <i class="bi bi-folder-fill fs-1 text-dark"></i>
@@ -21,7 +21,7 @@
 
         <!-- Academicians Section -->
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="card">
+            <div class="card shadow-lg rounded-3 bg-light">
                 <div class="card-body text-center">
                     <!-- Academicians Icon -->
                     <i class="bi bi-people-fill fs-1 text-dark"></i>
@@ -34,13 +34,43 @@
 
         <!-- Milestones Section -->
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="card">
+            <div class="card shadow-lg rounded-3 bg-light">
                 <div class="card-body text-center">
                     <!-- Milestones Icon -->
                     <i class="bi bi-clipboard-check-fill fs-1 text-dark"></i>
                     <h5 class="card-title mt-3">Milestones</h5>
                     <p class="card-text">Track and Manage Project Milestones.</p>
                     <a href="{{ route('milestones.index') }}" class="btn btn-dark">Go to Milestones</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Counter Section with Matching Card Sizes -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card shadow-lg rounded-3 bg-dark text-white">
+                <div class="card-body text-center py-4">
+                    <h5 class="card-title">Total Grants</h5>
+                    <p class="card-text fs-3 fw-bold">{{ $grantCount }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card shadow-lg rounded-3 bg-dark text-white">
+                <div class="card-body text-center py-4">
+                    <h5 class="card-title">Total Academicians</h5>
+                    <p class="card-text fs-3 fw-bold">{{ $academicianCount }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card shadow-lg rounded-3 bg-dark text-white">
+                <div class="card-body text-center py-4">
+                    <h5 class="card-title">Total Milestones</h5>
+                    <p class="card-text fs-3 fw-bold">{{ $milestoneCount }}</p>
                 </div>
             </div>
         </div>
