@@ -8,37 +8,37 @@
             @csrf
             @method('PUT')
 
-            <div class="mb-2">
+            <div class="mb-3">
                 <label for="ProjectTitle">Project Title</label>
                 <input type="text" name="ProjectTitle" class="form-control" value="{{ $researchGrant->ProjectTitle }}" required>
             </div>
 
-            <div class="mb-2">
+            <div class="mb-3">
                 <label for="GrantProvider">Grant Provider</label>
                 <input type="text" name="GrantProvider" class="form-control" value="{{ $researchGrant->GrantProvider }}" required>
             </div>
 
-            <div class="mb-2">
+            <div class="mb-3">
                 <label for="GrantAmount">Grant Amount</label>
                 <input type="number" name="GrantAmount" class="form-control" step="0.01" value="{{ $researchGrant->GrantAmount }}" required>
             </div>
 
-            <div class="mb-2">
+            <div class="mb-3">
                 <label for="StartDate">Start Date</label>
                 <input type="date" name="StartDate" class="form-control" value="{{ $researchGrant->StartDate }}" required>
             </div>
 
-            <div class="mb-2">
+            <div class="mb-3">
                 <label for="DurationMonth">Duration (Months)</label>
                 <input type="number" name="DurationMonth" class="form-control" value="{{ $researchGrant->DurationMonth }}" required>
             </div>
 
-            <div class="mb-2">
+            <div class="mb-3">
                 <label for="EndDate">End Date</label>
                 <input type="date" name="EndDate" class="form-control" value="{{ $researchGrant->EndDate }}" required>
             </div>
 
-            <div class="mb-2">
+            <div class="mb-3">
                 <label for="Academician_ID">Project Leader</label>
                 <select name="Academician_ID" class="form-control" required>
                     <option value="">-- Select Project Leader --</option>
@@ -51,7 +51,7 @@
                 </select>
             </div>
 
-            <div class="mb-2">
+            <div class="mb-3">
                 <label for="members">Assign Members</label>
                 <select name="members[]" class="form-control" multiple>
                     @foreach ($academicians as $academician)

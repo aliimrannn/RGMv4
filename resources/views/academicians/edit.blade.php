@@ -8,22 +8,22 @@
             @csrf
             @method('PUT')
 
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="Name">Name</label>
                 <input type="text" name="Name" class="form-control" value="{{ $academician->Name }}" required>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="StaffID">Staff ID</label>
                 <input type="text" name="StaffID" class="form-control" value="{{ $academician->StaffID }}" required>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="Email">Email</label>
                 <input type="email" name="Email" class="form-control" value="{{ $academician->Email }}" required>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="Position">Position</label>
                 <select name="Position" class="form-control" required>
                     <option value="Professor" {{ $academician->Position == 'Professor' ? 'selected' : '' }}>Professor</option>
@@ -33,7 +33,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="College">College</label>
                 <select name="College" class="form-control" required>
                     <option value="College of Engineering (COE)" {{ $academician->College == 'College of Engineering (COE)' ? 'selected' : '' }}>College of Engineering (COE)</option>
@@ -44,12 +44,15 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="Department">Department</label>
                 <input type="text" name="Department" class="form-control" value="{{ $academician->Department }}" required>
             </div>
 
-            <button type="submit" class="btn btn-success">Update</button>
+            <div class="d-flex justify-content-between mt-4">
+            <button type="submit" class="btn btn-success">Update Academiciant</button>
+            <a href="{{ route('academicians.index') }}" class="btn btn-dark">Back</a>
+
         </form>
     </div>
 @endsection

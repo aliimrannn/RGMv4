@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Create Academician</h1>
+        <h1>Add Academician</h1>
 
         <form action="{{ route('academicians.store') }}" method="POST">
             @csrf
@@ -47,7 +47,10 @@
                 <input type="text" class="form-control" id="Department" name="Department" required>
             </div>
             
-            <button type="submit" class="btn btn-primary">Create Academician</button>
+            <div class="d-flex justify-content-between mt-4">
+            <button type="submit" class="btn btn-success">Create Academician</button>
+            <a href="{{ route('academicians.index') }}" class="btn btn-dark">Back</a>
+
         </form>
     </div>
 @endsection
