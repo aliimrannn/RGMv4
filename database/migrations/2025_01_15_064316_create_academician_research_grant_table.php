@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('academician_research_grant', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('Academician_ID'); // FK for academicians
+            $table->unsignedBigInteger('Grant_ID');       // FK for research grants
+            $table->timestamps();
+
             $table->foreignId('Academician_ID')->constrained()->onDelete('cascade');
             $table->foreignId('Grant_ID')->constrained()->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
