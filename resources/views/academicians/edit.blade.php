@@ -50,7 +50,7 @@
             </div>
 
             <div class="d-flex justify-content-between mt-4">
-            <button type="submit" class="btn btn-success">Update Academiciant</button>
+            <button type="submit" class="btn btn-success">Update Academician</button>
             <a href="{{ route('academicians.index') }}" class="btn btn-dark">Back</a>
 
         </form>

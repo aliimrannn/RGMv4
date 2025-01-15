@@ -46,8 +46,11 @@
                 <label for="Deliverable" class="form-label">Deliverable</label>
                 <textarea id="Deliverable" name="Deliverable" class="form-control"></textarea>
             </div>
-
-            <button type="submit" class="btn btn-success">Save</button>
         </form>
+
+        <div class="d-flex justify-content-between mt-4">
+        <button type="submit" class="btn btn-success">Update Milestone</button>
+        <a href="{{ route('milestones.index') }}" class="btn btn-dark">Back</a>
+        
     </div>
 @endsection

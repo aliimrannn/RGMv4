@@ -8,7 +8,7 @@
             @csrf
             @method('PUT')
 
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="Name">Name</label>
                 <input type="text" name="Name" class="form-control" value="{{ $milestone->Name }}" required>
             </div>
@@ -26,12 +26,12 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="TargetCompletionDate">Target Completion Date</label>
                 <input type="date" name="TargetCompletionDate" class="form-control" value="{{ $milestone->TargetCompletionDate }}" required>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="Status">Status</label>
                 <select name="Status" class="form-control" required>
                     <option value="Pending" {{ $milestone->Status == 'Pending' ? 'selected' : '' }}>Pending</option>
@@ -40,17 +40,20 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="Remarks">Remarks</label>
                 <textarea name="Remarks" class="form-control">{{ $milestone->Remarks }}</textarea>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="Deliverable">Deliverable</label>
                 <textarea name="Deliverable" class="form-control">{{ $milestone->Deliverable }}</textarea>
             </div>
 
-            <button type="submit" class="btn btn-success">Update</button>
+            <div class="d-flex justify-content-between mt-4">
+            <button type="submit" class="btn btn-success">Update Milestone</button>
+            <a href="{{ route('milestones.index') }}" class="btn btn-dark">Back</a>
         </form>
+
     <div>
 @endsection

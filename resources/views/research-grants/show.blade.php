@@ -63,11 +63,11 @@
                     <tbody>
                         @foreach ($researchGrant->milestones as $milestone)
                             <tr>
-                                <td class="text-start">{{ $milestone->Name }}</td>
+                                <td>{{ $milestone->Name }}</td>
                                 <td>{{ $milestone->TargetCompletionDate }}</td>
                                 <td>{{ $milestone->Status }}</td>
-                                <td class="text-start">{{ $milestone->Remarks }}</td>
-                                <td class="text-start">{{ $milestone->Deliverable }}</td>
+                                <td>{{ $milestone->Remarks }}</td>
+                                <td>{{ $milestone->Deliverable }}</td>
                             </tr>
                         @endforeach
                     </tbody>
